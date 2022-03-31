@@ -1,2 +1,2 @@
 FROM docker.io/nginx:latest
-COPY index.html /usr/share/nginx/html
+COPY wdio.conf /usr/share/nginx/html
