@@ -1,7 +1,7 @@
 pipeline {
 	environment {
-    		def APP_NAME = "protractorui"
-    		def GIT_REPO_NAME = "prashanttathe"
+    		def APP_NAME = "shantanu89"
+    		def GIT_REPO_NAME = "petclinicuiautomation"
     		def DEPLOY_ENV = "dev"
 	}
     	agent { dockerfile true }
