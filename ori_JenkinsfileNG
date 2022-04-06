@@ -1,6 +1,6 @@
 //@Library('jenkins-shared-library@v1.4.0') _
 
-pipeline {
+/*pipeline {
   agent { label "linux" }
   options {
     timeout(time: 60, unit: 'MINUTES')
@@ -75,4 +75,4 @@ stage("Deploy to Dev") {
         cleanWs()
     }
   }
-}
+}  */
