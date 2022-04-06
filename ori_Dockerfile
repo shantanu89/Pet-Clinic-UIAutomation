@@ -1,4 +1,4 @@
-# chromium > 76 is required. For now, this is only available in the 'edge' build
+/*# chromium > 76 is required. For now, this is only available in the 'edge' build
 FROM alpine:edge
 USER root
 
@@ -27,3 +27,4 @@ RUN chmod -R 777 ./
 #RUN webdriver-manager update
 #RUN npm cache clean --force
 #RUN npm test
+*/
