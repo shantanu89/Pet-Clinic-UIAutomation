@@ -1,4 +1,6 @@
 # chromium > 76 is required. For now, this is only available in the 'edge' build
+
+npm install 
 FROM alpine:edge
 USER root
 
