@@ -1,29 +1,15 @@
-# chromium > 76 is required. For now, this is only available in the 'edge' build
-FROM alpine:edge
-USER root
+FROM node:10 AS ui-build
+WORKDIR /usr/src/app
+COPY my-app/ ./my-app/
+RUN cd my-app && npm install && npm run build
 
-RUN apk add openjdk11 
-RUN java --version
+FROM node:10 AS server-build
+WORKDIR /root/
+COPY --from=ui-build /usr/src/app/my-app/out ./my-app/out
+COPY api/package*.json ./api/
+RUN cd api && npm install
+COPY api/server.js ./api/
 
-#install npm
-RUN apk add  --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/main/ nodejs=8.9.3-r1
+EXPOSE 3080
 
-#insttall firefox
-RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing firefox
-	
-WORKDIR /app
-
-ENV PATH /app/node_modules/.bin:$PATH
-#Global npm dependencies
-ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
-#optionally if you want to run npm global bin without specifying path
-ENV PATH=$PATH:/home/node/.npm-global/bin
-
-COPY package.json /app/package.json
-RUN npm install --unsafe-perm=true --allow-root
-COPY . /app
-RUN chmod -R 777 ./
-#RUN chown $USER /app -Rv
-#RUN webdriver-manager update
-#RUN npm cache clean --force
-#RUN npm test
+CMD ["node", "./api/server.js"]
