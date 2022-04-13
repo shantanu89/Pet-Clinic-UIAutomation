@@ -1,25 +1,28 @@
-Feature: Verify whether user can add new owner successfully
+Feature: Add new Owner
+Background: Navigate to find owner page
+     Given User is on petclinic home page
+     When User clicks on find owner menu 
 
-   Feature: Add new Owner
+     Scenario: Verify find owner page displayed succesfully
+          Given User is on find owner page
+          Then Find Owner page should be dispalyed
 
-    Scenario: Verify user is able to add new owner in pet
-        Given User is adding new owner in petclinic application
-        When User clicks on find owner menu from home page
-        Then Find Owner screen gets dispalyed 
-
-   Scenario: Verify user is able to add new owner in pet
-        When User clicks on add owner menu from home page
-        Then Add information screen get displayed
-
-
-   Scenario: user can able to add new owner
-      When User provides all the details firstname,lastname,address,city telephone of new owner and submit
-      Then User can see information added page
+     Scenario: Verify user able to navigate to add owner page
+          Given User is on find owner page
+          When User clicks on add owner button
+          Then Owner information page should be displayed
 
 
-   
+     Scenario: Verify user should be able to add new owner
+          Given User is on find owner page
+          And  User clicks on add owner button
+          When User provides all the owner details 
+          Then Owner information should be added 
 
-    
-   
+
+
+
+
+
 
 
