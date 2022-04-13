@@ -9,15 +9,11 @@ const data = {
     },
 
     AddOwner: {
-        firstName: "firstname owner",
-        lastName: "lastname owner",
+        firstName: "firstname",
+        lastName: "lastname",
         address: "389, azad street, India",
         city: "Pune",
-        telephone: "1234567890",
-        invalidTelephoneDigits: "123456892",
-        invalidtelephone1: "12345678901",
-        invalidtelephone2: "1234567",
-        invalidtelephone3: "absdf44456"
+        telephone: "9874563215",   
     },
 
     FieldValidationErrorMessage: {
